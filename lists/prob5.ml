@@ -2,7 +2,18 @@
   Reverse a list.
 *)
 
-let rec reverse ls1 ls2 = 
-  match ls1 with
-  | [] -> ls2
-  | h :: t -> h :: (reverse t ls2)
+let reverse ls =
+  let rec iter lst res = 
+    match lst with
+    | [] -> res
+    | h :: t -> iter t (h :: res)
+  in iter ls res
+
+(*The below solution is still under wip*)
+
+let rev ls = 
+  let rec iter lst res = 
+    match lst with 
+    | [] -> res
+    | h::t -> iter (h::res) t
+  in iter [] ls
